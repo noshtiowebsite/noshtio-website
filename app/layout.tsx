@@ -3,6 +3,7 @@ import { Poppins, DM_Sans, Geist } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
+import { WebVitals } from '@/components/WebVitals'
 import { defaultMetadata } from '@/next-seo.config'
 import './globals.css'
 import { cn } from "@/lib/utils";
@@ -36,7 +37,14 @@ export default function RootLayout({
       className={cn(poppins.variable, dmSans.variable, "font-sans", geist.variable)}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://firebasestorage.googleapis.com" />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      </head>
       <body className="min-h-screen bg-background font-sans antialiased">
+        <WebVitals />
         <Navbar />
         <main className="pt-16 lg:pt-20">{children}</main>
         <Footer />
