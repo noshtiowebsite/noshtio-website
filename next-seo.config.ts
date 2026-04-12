@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const siteConfig = {
   name: 'noshtio',
-  tagline: 'The Art of Shared Plates',
+  tagline: "Food's Trusted Platform",
   description:
     "India's zero-commission hyperlocal food vendor marketplace. Discover authentic local food vendors near you and support your community.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://noshtio.com',
@@ -67,7 +67,7 @@ export const defaultMetadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/images/Noshtio_Logo.png',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },

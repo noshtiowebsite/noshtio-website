@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import {
-  ChefHat,
   Instagram,
   Twitter,
   Linkedin,
@@ -61,26 +61,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="group inline-flex items-center gap-2">
-              <ChefHat
-                className="h-8 w-8 text-gold transition-colors group-hover:text-gold-400"
-                strokeWidth={1.5}
-                aria-hidden="true"
-              />
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold tracking-tight text-white">
-                  noshtio
-                </span>
-                <span className="text-[11px] font-medium tracking-wider text-gold/70">
-                  The Art of Shared Plates
-                </span>
-              </div>
+            <Link href="/" className="group inline-flex">
+              <Image src="/images/Noshtio_Logo.png" alt="noshTio" width={160} height={56} />
             </Link>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
               India&apos;s first zero-commission hyperlocal food vendor
               marketplace. We connect hungry customers with passionate local
               food vendors — no middlemen, no hidden fees.
+            </p>
+            <p className="mt-4 text-sm font-medium text-gold">
+              Building India's first vendor-first food platform — together.
             </p>
 
             {/* Social Icons */}
@@ -217,10 +208,15 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-center sm:flex-row sm:text-left">
-          <p className="text-xs text-white/40">
-            © {currentYear} noshtio. All rights reserved. Built with love for
-            India&apos;s food vendors.
-          </p>
+          <div className="flex flex-col gap-2 sm:items-start">
+            <p className="text-sm font-medium text-gold">
+              Join 500+ founding vendors already onboard
+            </p>
+            <p className="text-xs text-white/40">
+              © {currentYear} noshtio. All rights reserved. Built with love for
+              India&apos;s food vendors.
+            </p>
+          </div>
           <div className="flex items-center gap-4 text-xs text-white/40">
             <Link
               href="/privacy-policy"

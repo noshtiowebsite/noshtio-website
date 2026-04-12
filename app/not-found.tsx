@@ -89,7 +89,7 @@ export default function NotFound() {
 
         {/* Tagline */}
         <p className="mt-12 text-xs font-medium uppercase tracking-widest text-white/25">
-          The Art of Shared Plates
+          Food&apos;s Trusted Platform
         </p>
       </div>
     </div>

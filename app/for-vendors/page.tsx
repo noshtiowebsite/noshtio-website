@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TrendingDown, DollarSign, Shield, Zap, FileText, Smartphone, CheckCircle, Clock, ChefHat, Package, Cake, Users, Star } from "lucide-react";
 import SavingsCalculator from "@/components/vendors/SavingsCalculator";
@@ -166,20 +167,23 @@ export default function ForVendorsPage() {
         <section className="py-20 bg-navy text-center">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
-              <span className="text-gold">Zero Commission.</span>
+              <span className="text-gold">Onboard Yourself.</span>
               <br />
-              <span className="text-navy">Full Control.</span>
+              <span className="text-navy">Keep Every Rupee.</span>
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Join India's zero-commission hyperlocal food marketplace. Keep 100% of your earnings while reaching more customers.
+              Join noshtio as a founding vendor — zero commission forever. 
+              We are building India's most vendor-friendly food platform together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button className="bg-gold hover:bg-gold/90 text-navy px-8 py-4 text-lg font-medium">
-                Start Your Free Listing
-              </Button>
+              <Link href="/vendor/register">
+                <Button className="bg-gold hover:bg-gold/90 text-navy px-8 py-4 text-lg font-medium">
+                  Claim Your Founding Vendor Spot — Free
+                </Button>
+              </Link>
             </div>
             <p className="text-gold text-lg font-medium">
-              500+ vendors already earning more
+              Be among our first 1,000 founding vendors
             </p>
           </div>
         </section>
@@ -208,14 +212,9 @@ export default function ForVendorsPage() {
                   </thead>
                   <tbody>
                     <tr className="border-t border-gray-200">
-                      <td className="px-6 py-4 font-medium text-gray-900">Zomato</td>
+                      <td className="px-6 py-4 font-medium text-gray-900">Traditional Platforms</td>
                       <td className="px-6 py-4 text-red-600 font-semibold">25-30%</td>
                       <td className="px-6 py-4 text-red-600 font-semibold">₹25,000-₹30,000</td>
-                    </tr>
-                    <tr className="border-t border-gray-200">
-                      <td className="px-6 py-4 font-medium text-gray-900">Swiggy</td>
-                      <td className="px-6 py-4 text-red-600 font-semibold">22-25%</td>
-                      <td className="px-6 py-4 text-red-600 font-semibold">₹22,000-₹25,000</td>
                     </tr>
                     <tr className="border-t border-gold bg-gold/5">
                       <td className="px-6 py-4 font-display font-bold text-navy">noshtio</td>

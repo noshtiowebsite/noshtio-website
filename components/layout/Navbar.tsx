@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ChefHat } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
@@ -45,38 +46,26 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between lg:h-20">
+          <div className="flex h-16 md:h-20 items-center justify-between">
             {/* Logo */}
             <Link
               href="/"
               className="flex items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
               aria-label="noshtio home"
             >
-              <ChefHat
-                className="h-8 w-8 text-gold"
-                strokeWidth={1.5}
-                aria-hidden="true"
-              />
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold tracking-tight text-white">
-                  noshtio
-                </span>
-                <span className="hidden text-[10px] font-medium tracking-wider text-gold/80 sm:block">
-                  The Art of Shared Plates
-                </span>
-              </div>
+              <Image src="/images/Noshtio_Logo.png" alt="noshTio" width={140} height={48} />
             </Link>
 
             {/* Desktop Navigation */}
             <nav
-              className="hidden items-center gap-1 lg:flex"
+              className="hidden items-center gap-2 lg:flex"
               aria-label="Main navigation"
             >
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                  className={`rounded-lg px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                     pathname === link.href
                       ? 'bg-white/10 text-gold'
                       : 'text-white/80 hover:bg-white/10 hover:text-white'
@@ -90,10 +79,10 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden lg:flex">
               <Link
-                href="/for-vendors#list-your-stall"
+                href="/vendor/register"
                 className="inline-flex items-center justify-center rounded-lg bg-gold px-5 py-2.5 text-sm font-semibold text-navy transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
               >
-                List Your Stall
+                Onboard Free
               </Link>
             </div>
 
@@ -142,8 +131,7 @@ export default function Navbar() {
             className="flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
-            <ChefHat className="h-7 w-7 text-gold" strokeWidth={1.5} aria-hidden="true" />
-            <span className="font-display text-lg font-bold text-white">noshtio</span>
+            <Image src="/images/Noshtio_Logo.png" alt="noshTio" width={120} height={40} />
           </Link>
           <button
             type="button"
