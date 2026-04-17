@@ -4,30 +4,30 @@ const steps = [
   {
     number: 1,
     icon: UserPlus,
-    title: "Register",
-    description: "Create your vendor account in minutes"
+    title: "Onboard Yourself",
+    description: "Register free in 2 minutes"
   },
   {
     number: 2,
     icon: Upload,
-    title: "Upload Menu",
-    description: "Add your delicious dishes and pricing"
+    title: "List Your Menu",
+    description: "Upload dishes and set your price"
   },
   {
     number: 3,
     icon: CreditCard,
-    title: "Get Paid",
-    description: "Receive payments directly from customers"
+    title: "Earn Full Profit",
+    description: "Keep 100% of every order, always"
   }
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-28 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-navy mb-4">
-            How It Works
+            Start Earning in 3 Simple Steps
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Join thousands of vendors already earning more with zero commissions

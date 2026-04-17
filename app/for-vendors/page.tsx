@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TrendingDown, DollarSign, Shield, Zap, FileText, Smartphone, CheckCircle, Clock, ChefHat, Package, Cake, Users, Star } from "lucide-react";
 import SavingsCalculator from "@/components/vendors/SavingsCalculator";
+import USPSection from "@/components/home/USPSection";
 
 export const metadata: Metadata = {
   title: "For Vendors | noshtio - Zero Commission Food Platform",
@@ -259,6 +260,19 @@ export default function ForVendorsPage() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* FEATURES THAT SET NOSHTIO APART */}
+        <section className="bg-white">
+          <div className="container mx-auto px-4 pt-20 pb-10 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-navy mb-4">
+              Features That Set noshtio Apart
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Tools that big restaurant chains pay lakhs for — free with noshtio
+            </p>
+          </div>
+          <USPSection />
         </section>
 
         {/* ONBOARDING TIMELINE */}

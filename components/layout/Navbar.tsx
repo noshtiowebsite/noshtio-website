@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
+const ANNOUNCEMENT_TEXT = '🆕 Smart Menu Upload + Built-in POS — Join noshtio Free Today →'
+
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'How It Works', href: '/how-it-works' },
@@ -17,6 +19,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [showBanner, setShowBanner] = useState(true)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -38,8 +41,32 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Fixed wrapper: announcement bar + main header */}
+      <div className="fixed inset-x-0 top-0 z-40">
+        {/* Announcement Bar */}
+        {showBanner && (
+          <Link
+            href="/vendor/register"
+            className="flex h-9 items-center justify-center bg-[#C9A84C] relative"
+            aria-label="Announcement: Smart Menu Upload and Built-in POS — Join noshtio Free Today"
+          >
+            <span className="text-sm font-semibold text-[#0D1B3E] px-10 text-center truncate">
+              {ANNOUNCEMENT_TEXT}
+            </span>
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowBanner(false) }}
+              className="absolute right-3 flex h-7 w-7 items-center justify-center rounded-full text-[#0D1B3E]/70 transition-colors hover:bg-[#0D1B3E]/10 hover:text-[#0D1B3E]"
+              aria-label="Dismiss announcement"
+            >
+              <X className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </Link>
+        )}
+
+      {/* Main Header */}
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
+        className={`transition-all duration-300 ${
           isScrolled
             ? 'bg-navy/95 shadow-lg shadow-navy/20 backdrop-blur-md'
             : 'bg-navy'
@@ -53,7 +80,14 @@ export default function Navbar() {
               className="flex items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
               aria-label="noshtio home"
             >
-              <Image src="/images/Noshtio_Logo.png" alt="noshTio" width={140} height={48} />
+              <Image
+                src="/images/Noshtio_Logo.png"
+                alt="noshTio - Food's Trusted Platform"
+                width={140}
+                height={48}
+                style={{ width: 'auto', height: '48px' }}
+                priority={true}
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -104,6 +138,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+      </div>{/* end fixed wrapper */}
 
       {/* Backdrop */}
       <div
@@ -131,7 +166,14 @@ export default function Navbar() {
             className="flex items-center gap-2"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Image src="/images/Noshtio_Logo.png" alt="noshTio" width={120} height={40} />
+            <Image
+              src="/images/Noshtio_Logo.png"
+              alt="noshTio - Food's Trusted Platform"
+              width={120}
+              height={40}
+              style={{ width: 'auto', height: '40px' }}
+              priority={true}
+            />
           </Link>
           <button
             type="button"

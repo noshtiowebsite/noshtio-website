@@ -3,6 +3,7 @@ import TrustBar from "@/components/home/TrustBar";
 import HowItWorks from "@/components/home/HowItWorks";
 import CategoryGrid from "@/components/home/CategoryGrid";
 import CommissionComparison from "@/components/home/CommissionComparison";
+import USPSection from "@/components/home/USPSection";
 import Testimonials from "@/components/home/Testimonials";
 import CoverageStrip from "@/components/home/CoverageStrip";
 import BlogTeaser from "@/components/home/BlogTeaser";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <HowItWorks />
       <CategoryGrid />
       <CommissionComparison />
+      <USPSection />
       <Testimonials />
       <CoverageStrip />
       <BlogTeaser />

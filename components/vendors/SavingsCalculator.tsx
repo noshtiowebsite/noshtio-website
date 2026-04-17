@@ -5,16 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 
 const platforms = {
-  zomato: { name: "Zomato", rate: 0.27 },
-  swiggy: { name: "Swiggy", rate: 0.23 },
-  both: { name: "Both (Average)", rate: 0.25 }
+  other: { name: "Other Apps", rate: 0.25 }
 } as const;
 
 type PlatformKey = keyof typeof platforms;
 
 export default function SavingsCalculator() {
   const [monthlyRevenue, setMonthlyRevenue] = useState([100000]);
-  const [selectedPlatform, setSelectedPlatform] = useState<PlatformKey>("zomato");
+  const [selectedPlatform, setSelectedPlatform] = useState<PlatformKey>("other");
   const [calculations, setCalculations] = useState({
     monthlyLoss: 0,
     annualLoss: 0,

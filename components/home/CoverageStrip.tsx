@@ -9,8 +9,8 @@ const cities = [
 
 export default function CoverageStrip() {
   return (
-    <section className="py-16 bg-navy">
-      <div className="container mx-auto px-4 text-center">
+    <section className="py-20 md:py-28 bg-navy">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
         <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-8">
           Serving 15+ Indian Cities
         </h3>

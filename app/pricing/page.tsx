@@ -11,6 +11,14 @@ export const metadata: Metadata = {
 const features = [
   {
     icon: Check,
+    text: "Smart Menu Upload (photo your menu — live in 2 minutes)"
+  },
+  {
+    icon: Check,
+    text: "Built-in POS System (walk-in + online, one screen, free)"
+  },
+  {
+    icon: Check,
     text: "Unlimited orders processing"
   },
   {

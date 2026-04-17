@@ -26,10 +26,10 @@ function WelcomeContent() {
           </div>
 
           <h1 className="font-display text-4xl font-bold text-gold">
-            Welcome, {decodeURIComponent(name)}!
+            Welcome to noshtio Family!
           </h1>
           <p className="mt-3 text-lg text-white/80">
-            You're all set. We're excited to have you on board!
+            You are now a founding vendor. Help us reach 1,000 vendors and 10,000 customers together.
           </p>
         </div>
 
@@ -117,6 +117,25 @@ function WelcomeContent() {
                 </div>
               </a>
             </div>
+          </div>
+
+          {/* Referral Message */}
+          <div className="my-8 border-y border-gray-200 py-8 text-center">
+            <h3 className="font-display text-lg font-bold text-navy mb-3">
+              Help us grow together
+            </h3>
+            <p className="text-sm text-navy/70 mb-6">
+              Share noshtio with fellow vendors — help us build India's best zero-commission food platform together.
+            </p>
+            <a
+              href={`https://wa.me/?text=${encodeURIComponent("Join me as a founding vendor on noshtio! Zero commission forever. Be among our first 1,000 vendors. Sign up: https://noshtio.com/vendor/register")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3 font-semibold text-white transition-all hover:bg-[#20ba5e]"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Share with Vendor Friends
+            </a>
           </div>
 
           {/* WhatsApp Support Button */}

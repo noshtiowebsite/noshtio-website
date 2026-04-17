@@ -46,7 +46,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans antialiased">
         <WebVitals />
         <Navbar />
-        <main className="pt-16 lg:pt-20">{children}</main>
+        <main className="pt-[100px] lg:pt-[116px]">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>

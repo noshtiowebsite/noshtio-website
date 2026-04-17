@@ -175,11 +175,12 @@ function VendorRegisterForm() {
           <div className="mb-4 flex items-center justify-center gap-2">
             <ChefHat className="h-8 w-8 text-gold" />
             <h1 className="font-display text-3xl font-bold text-white">
-              Join noshtio
+              Become a Founding Vendor
             </h1>
           </div>
           <p className="text-white/60">
-            Earn more with zero commission. Sell your food directly to customers.
+            Join free — zero commission forever. 
+            Be among our first 1,000 founding vendors on noshtio.
           </p>
         </div>
 
@@ -512,7 +513,7 @@ function VendorRegisterForm() {
                     Next <ArrowRight className="h-4 w-4" />
                   </>
                 ) : (
-                  'Submit & Join noshtio'
+                  'Claim My Founding Vendor Spot'
                 )}
               </button>
             </div>

@@ -23,8 +23,8 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-28 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-navy mb-4">
             What Our Vendors Say
@@ -36,27 +36,32 @@ export default function Testimonials() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-8 relative">
-              <Quote className="w-8 h-8 text-gold mb-4" />
-              <blockquote className="text-gray-700 mb-6 italic">
-                "{testimonial.quote}"
+            <div key={index} className="bg-gray-50 rounded-lg p-8 relative shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="text-gold text-6xl font-serif leading-none mb-4">"</div>
+              <blockquote className="text-gray-700 mb-6 italic relative z-10">
+                {testimonial.quote}
               </blockquote>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-navy rounded-full flex items-center justify-center mr-4">
-                  <span className="text-gold font-display font-bold text-lg">
-                    {testimonial.name.charAt(0)}
-                  </span>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-navy rounded-full flex items-center justify-center mr-4">
+                    <span className="text-gold font-display font-bold text-lg">
+                      {testimonial.name.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="font-display font-semibold text-navy">
+                      {testimonial.name}
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      {testimonial.role}
+                    </div>
+                    <div className="text-sm text-gold">
+                      {testimonial.location}
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-display font-semibold text-navy">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-sm text-gray-600">
-                    {testimonial.role}
-                  </div>
-                  <div className="text-sm text-gold">
-                    {testimonial.location}
-                  </div>
+                <div className="text-gold text-lg font-bold">
+                  ★★★★★
                 </div>
               </div>
             </div>

@@ -62,7 +62,14 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="group inline-flex">
-              <Image src="/images/Noshtio_Logo.png" alt="noshTio" width={160} height={56} />
+              <Image
+                src="/images/Noshtio_Logo.png"
+                alt="noshTio - Food's Trusted Platform"
+                width={160}
+                height={56}
+                style={{ width: 'auto', height: '56px' }}
+                priority={true}
+              />
             </Link>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
