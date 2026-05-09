@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { TrendingDown, DollarSign, Shield, Zap, FileText, Smartphone, CheckCircle, Clock, ChefHat, Package, Cake, Users, Star } from "lucide-react";
 import SavingsCalculator from "@/components/vendors/SavingsCalculator";
 import USPSection from "@/components/home/USPSection";
+import VendorLeadForm from "@/components/vendors/VendorLeadForm";
 
 export const metadata: Metadata = {
   title: "For Vendors | noshtio - Zero Commission Food Platform",
@@ -419,6 +420,28 @@ export default function ForVendorsPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* VENDOR LEAD FORM */}
+        <section id="register" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-xl mx-auto">
+              <div className="text-center mb-10">
+                <span className="inline-block text-xs font-semibold tracking-widest uppercase text-gold mb-3">
+                  Founding Vendor Application
+                </span>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-navy mb-3">
+                  Join noshtio Free Today
+                </h2>
+                <p className="text-gray-600">
+                  Fill in your details — we'll reach out on WhatsApp within 24 hours.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl shadow-lg p-8">
+                <VendorLeadForm />
+              </div>
             </div>
           </div>
         </section>

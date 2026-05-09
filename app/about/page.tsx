@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { MapPin, Users, DollarSign, Calendar, Heart, Target } from "lucide-react";
+import DownloadButton from "@/components/about/DownloadButton";
 
 export const metadata: Metadata = {
   title: "About Us | noshtio - Zero Commission Food Platform",
@@ -252,9 +253,7 @@ export default function AboutPage() {
             <Button className="bg-navy hover:bg-navy/90 text-white px-8 py-4 text-lg font-medium">
               Become a Vendor
             </Button>
-            <Button variant="outline" className="border-navy text-navy hover:bg-navy hover:text-white px-8 py-4 text-lg font-medium">
-              Download App
-            </Button>
+            <DownloadButton />
           </div>
         </div>
       </section>

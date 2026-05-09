@@ -1,8 +1,39 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Download, Smartphone } from "lucide-react";
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import { Search, Home, ShoppingBag, User, Bell, MapPin, Star } from 'lucide-react'
+
+const ALL_CITIES = [
+  'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Chennai', 'Pune',
+  'Ahmedabad', 'Kolkata', 'Jaipur', 'Lucknow', 'Ghaziabad', 'Noida',
+  'Gurugram', 'Chandigarh', 'Indore', 'Surat',
+]
+
+const LIVE_CITIES = new Set(['Noida', 'Ghaziabad', 'Delhi', 'Gurugram'])
+
+const MOCK_VENDORS = [
+  { emoji: '🍛', name: 'Biryani Bros', city: 'Noida', tag: 'Restaurant', rating: 4.9 },
+  { emoji: '🏠', name: "Mom's Kitchen", city: 'Noida', tag: 'Home Chef', rating: 4.7 },
+  { emoji: '🌮', name: 'Street Bites', city: 'Delhi', tag: 'Street Food', rating: 4.4 },
+]
 
 export default function HeroSection() {
+  const [query, setQuery] = useState('')
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
+
+  const results = query.trim().length > 0
+    ? ALL_CITIES.filter((c) => c.toLowerCase().includes(query.trim().toLowerCase()))
+    : []
+
+  function handleCityClick(city: string) {
+    setQuery(city)
+    setOpen(false)
+    router.push('/for-vendors#register')
+  }
+
   return (
     <section className="relative min-h-screen bg-navy flex items-center overflow-hidden">
       {/* Animated floating circles */}
@@ -75,7 +106,65 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
+
+        {/* City Search */}
+        <div className="mt-16 max-w-xl mx-auto lg:mx-0">
+          <div className="relative">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 pointer-events-none" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => { setQuery(e.target.value); setOpen(true) }}
+                onFocus={() => query && setOpen(true)}
+                onBlur={() => setTimeout(() => setOpen(false), 120)}
+                placeholder="Is noshtio available in your city?"
+                className="w-full bg-white/10 text-white placeholder-white/50 border border-white/20 rounded-xl pl-12 pr-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent focus:bg-white/15 transition-all"
+              />
+            </div>
+
+            {/* Dropdown */}
+            {open && results.length > 0 && (
+              <ul className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl overflow-hidden z-50 border border-gray-100">
+                {results.map((city) => (
+                  <li key={city}>
+                    <button
+                      type="button"
+                      onMouseDown={() => handleCityClick(city)}
+                      className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 transition-colors text-left"
+                    >
+                      <span className="font-medium text-navy text-sm">{city}</span>
+                      {LIVE_CITIES.has(city) ? (
+                        <span className="text-green-600 text-xs font-semibold">
+                          ✅ Available
+                        </span>
+                      ) : (
+                        <span className="text-gray-400 text-xs font-semibold">
+                          🕐 Coming Soon
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* No match */}
+            {open && query.trim().length > 0 && results.length === 0 && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl z-50 px-5 py-4 text-sm text-gray-500 border border-gray-100">
+                No city found for &quot;{query}&quot; —{' '}
+                <button
+                  type="button"
+                  onMouseDown={() => router.push('/for-vendors#register')}
+                  className="text-gold underline underline-offset-2 hover:text-gold/80"
+                >
+                  request your city
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
-  );
+  )
 }

@@ -2,146 +2,170 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────────────
+   noshTio Marketing Website — Global Styles
+
+   Companion files:
+     - tailwind.config.ts (token definitions, font variables, content paths)
+     - app/layout.tsx     (font loading via next/font/google)
+     - CLAUDE.md          (project rules, especially §5 on legacy utilities)
+
+   CSS variable convention: HSL triplets without hsl() wrapper or commas.
+   Tailwind config wraps them at consumption time as `hsl(var(--token))`.
+   Standard shadcn/ui pattern — do not switch to oklch() or rgb().
+   ───────────────────────────────────────────────────────────────────── */
+
 @layer base {
   :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --destructive-foreground: 0 0% 100%;
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --radius: 0.625rem;
+    /* ─── Background & foreground ─────────────────────────────────────
+       Cream canvas, deep charcoal text. Warm not stark.            */
+    --background:           36 50% 96%;     /* #FAF6EE — brand.cream  */
+    --foreground:           220 26% 14%;    /* #1F2937 — brand.charcoal */
 
-    --color-navy: #0d1b3e;
-    --color-electric-blue: #1e6fff;
-    --color-gold: #c9a84c;
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    /* ─── Surface tokens (cards, popovers) ─────────────────────────
+       Lifted enough above canvas to read as a distinct surface.   */
+    --card:                 36 60% 99%;     /* near-white with cream warmth */
+    --card-foreground:      220 26% 14%;
+    --popover:              36 60% 99%;
+    --popover-foreground:   220 26% 14%;
+
+    /* ─── Primary: amber CTA ──────────────────────────────────────── */
+    --primary:              39 75% 53%;     /* #E0A52E — brand.amber */
+    --primary-foreground:   0 0% 100%;      /* white text on amber */
+
+    /* ─── Secondary: brand blue ───────────────────────────────────── */
+    --secondary:            225 64% 33%;    /* #1E3A8A — brand.blue */
+    --secondary-foreground: 0 0% 100%;
+
+    /* ─── Muted: low-emphasis surfaces and text ───────────────────── */
+    --muted:                36 30% 92%;     /* slightly darker than canvas */
+    --muted-foreground:     220 9% 46%;     /* #6B7280 — brand.muted */
+
+    /* ─── Accent: hover/focus surfaces ────────────────────────────── */
+    --accent:               36 40% 90%;     /* warm hover state on cream */
+    --accent-foreground:    220 26% 14%;
+
+    /* ─── Destructive: error states only ──────────────────────────── */
+    --destructive:          0 73% 50%;      /* #DC2626 — semantic.urgent */
+    --destructive-foreground: 0 0% 100%;
+
+    /* ─── Borders, inputs, focus ring ─────────────────────────────── */
+    --border:               36 25% 86%;     /* cream-tinted neutral */
+    --input:                36 25% 86%;
+    --ring:                 39 75% 53%;     /* amber focus ring matches primary */
+
+    /* ─── Charts: distinct, accessible, brand-coherent ────────────── */
+    --chart-1:              39 75% 53%;     /* amber */
+    --chart-2:              225 64% 33%;    /* blue */
+    --chart-3:              160 60% 38%;    /* teal complement */
+    --chart-4:              22 80% 55%;     /* warm orange */
+    --chart-5:              280 55% 48%;    /* purple complement */
+
+    /* ─── Border radius scale ─────────────────────────────────────── */
+    --radius: 0.625rem;
   }
 
+  .dark {
+    /* Phase 1: NEVER activated. .dark class is never added to <html>.
+       Defined for forward-compatibility so a Phase 2 theme toggle is
+       a one-line change, not a redesign. Values are brand-aware:
+       deep navy canvas, warm off-white text, amber CTAs unchanged. */
+
+    --background:           226 76% 11%;    /* deeper than brand.navy — true dark canvas */
+    --foreground:           36 50% 96%;     /* cream-tinted off-white */
+
+    --card:                 226 60% 16%;    /* lifted from background */
+    --card-foreground:      36 50% 96%;
+    --popover:              226 60% 16%;
+    --popover-foreground:   36 50% 96%;
+
+    --primary:              39 75% 53%;     /* amber stays — works on dark */
+    --primary-foreground:   0 0% 100%;
+
+    --secondary:            225 50% 50%;    /* blue lifted for contrast on dark */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted:                226 40% 20%;
+    --muted-foreground:     36 30% 70%;     /* warm grey, not generic */
+
+    --accent:               226 50% 22%;
+    --accent-foreground:    36 50% 96%;
+
+    --destructive:          0 73% 60%;      /* slightly brighter on dark for visibility */
+    --destructive-foreground: 0 0% 100%;
+
+    --border:               226 40% 24%;
+    --input:                226 40% 24%;
+    --ring:                 39 75% 53%;
+
+    --chart-1:              39 75% 60%;
+    --chart-2:              225 60% 65%;
+    --chart-3:              160 55% 55%;
+    --chart-4:              22 75% 65%;
+    --chart-5:              280 50% 65%;
+  }
+
+  /* ─── Element resets ─────────────────────────────────────────────── */
   * {
     @apply border-border outline-ring/50;
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-display;
+    text-wrap: balance;
   }
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-  }
-  .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-  html {
-    @apply font-sans;
+
+  /* Smoother focus visibility — accessible without being intrusive */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
 
 @layer components {
+  /* ─────────────────────────────────────────────────────────────────
+     Legacy utility classes — preserved per CLAUDE.md §5
+
+     Three classes have real consumers in the codebase:
+       - .btn-primary
+       - .btn-gold
+       - .gradient-text
+
+     Migrate consumers to Tailwind-native utilities during the component
+     restyle pass, then remove these definitions.
+     ───────────────────────────────────────────────────────────────── */
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-electricBlue px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-electricBlue-700 hover:shadow-lg hover:shadow-electricBlue/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electricBlue focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center
+           px-6 py-3 rounded-md
+           bg-brand-amber text-white font-display font-bold
+           shadow-cta
+           transition-all duration-150
+           hover:bg-brand-amber-hover hover:shadow-cta-lg hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
   }
 
+  /* Visually identical to .btn-primary under the new palette.
+     Kept as a separate class so existing consumers don't break;
+     remove once consumers migrate to .btn-primary. */
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-sm font-semibold text-navy transition-all hover:bg-gold-400 hover:shadow-lg hover:shadow-gold/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-navy/20 px-6 py-3 text-sm font-semibold text-navy transition-all hover:border-navy/40 hover:bg-navy/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
-  }
-
-  .section-heading {
-    @apply font-display text-3xl font-bold text-navy sm:text-4xl lg:text-5xl;
+    @apply inline-flex items-center justify-center
+           px-6 py-3 rounded-md
+           bg-brand-amber text-white font-display font-bold
+           shadow-cta
+           transition-all duration-150
+           hover:bg-brand-amber-hover hover:shadow-cta-lg hover:-translate-y-0.5
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-electricBlue to-gold bg-clip-text text-transparent;
-  }
-
-  .container-page {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
-
-  .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
-  }
-}
-
-@layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-
-  .text-balance {
-    text-wrap: balance;
+    @apply bg-gradient-to-r from-brand-blue to-brand-amber
+           bg-clip-text text-transparent;
   }
 }

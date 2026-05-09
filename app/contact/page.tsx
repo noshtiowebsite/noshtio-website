@@ -3,8 +3,17 @@ import ContactForm from "@/components/ContactForm";
 import { MessageSquare, Mail, MapPin, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | noshtio - Get in Touch",
-  description: "Have questions about noshtio? Contact our team for vendor support, partnerships, or general inquiries. We're here to help.",
+  title: "Contact Us | noshtio — Vendor Support, Partnerships & Enquiries",
+  description:
+    "Get in touch with the noshtio team. Reach out for vendor support, partnership opportunities, press enquiries, or general questions. We respond within 24 hours.",
+  keywords:
+    "contact noshtio, vendor support, food platform help, noshtio partnership, press media noshtio",
+  openGraph: {
+    title: "Contact noshtio — We're Here to Help",
+    description:
+      "Reach our team for vendor support, partnerships, or general enquiries. Response within 24 hours.",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

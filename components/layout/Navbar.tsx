@@ -13,6 +13,8 @@ const NAV_LINKS = [
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'For Vendors', href: '/for-vendors' },
   { label: 'Cities', href: '/cities' },
+  { label: 'Vendors', href: '/vendors' },
+  { label: 'Contact', href: '/contact' },
   { label: 'About', href: '/about' },
 ] as const
 

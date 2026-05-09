@@ -16,7 +16,9 @@ const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: 'Cities', href: '/cities' },
+  { label: 'Vendor Directory', href: '/vendors' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
   { label: 'About Us', href: '/about' },
 ]
 
